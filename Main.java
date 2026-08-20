@@ -31,4 +31,30 @@ public class Main {
             }
         }
 
-        
+        while (true) {
+            System.out.print("Create a password (must contain and be at least 8 characters): ");
+            password = scanner.next();
+            if (checkpassword(password)) {
+                System.out.println("password captured");
+                break;
+
+            } else {
+                System.out.println("password is not correctly formatted.");
+            }
+        }
+        while (true) {
+            System.out.print("type in cellphone number (must contain international country code and be max 12 characters): ");
+            cellPhoneNumber = scanner.next();
+            if (cellPhoneNumber.startsWith("+27")&& cellPhoneNumber.length() <= 12) {
+
+                System.out.println("cell phone number captured");
+                break;
+
+            } else {
+
+                System.out.println("Username is not correctly formatted. It must contain an underscore (_) and be no more than five characters.");
+
+            }
+        }
+    }
+    
