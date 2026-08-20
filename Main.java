@@ -57,4 +57,32 @@ public class Main {
             }
         }
     }
-    
+    public static boolean checkpassword (String password){
+
+        if (password == null && password.length() >= 8) {
+            return false;
+        }
+        boolean upper = false;
+        boolean lower = false;
+        boolean special = false;
+        boolean digit = false;
+
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                upper = true;
+            } else if (Character.isLowerCase(c)) {
+                lower = true;
+            }else if (Character.isDigit(c)) {
+                    digit = true;
+                } else {
+                    Pattern specialpattern = Pattern.compile("[^a-zA-Z0-9]");
+                    Matcher specialmatcher = specialpattern.matcher(String.valueOf(c));
+                    if (specialmatcher.find()) {
+                        special = true;
+                    }
+                }
+            }
+
+        return upper && lower && digit && special;
+        }
+    }
