@@ -54,8 +54,40 @@ public class Main {
 
                 System.out.println("Username is not correctly formatted. It must contain an underscore (_) and be no more than five characters.");
 
+
             }
         }
+
+        boolean logsuck = false;
+
+        while (!logsuck){
+
+            System.out.println("please enter your username to login");
+
+            userLogin = scanner.next();
+
+            System.out.println("please enter your password to login");
+
+            passwordLogin = scanner.next();
+
+            if (userLogin.equals(username) && passwordLogin.equals(password)){
+
+                System.out.println("Login successful");
+                System.out.println("welcome back");
+
+                logsuck = true;
+            } else {
+
+               System.out.println("login incorect username or password please try again");
+
+
+            }
+
+
+
+
+        }
+
     }
     public static boolean checkpassword (String password){
 
@@ -73,16 +105,17 @@ public class Main {
             } else if (Character.isLowerCase(c)) {
                 lower = true;
             }else if (Character.isDigit(c)) {
-                    digit = true;
-                } else {
-                    Pattern specialpattern = Pattern.compile("[^a-zA-Z0-9]");
-                    Matcher specialmatcher = specialpattern.matcher(String.valueOf(c));
-                    if (specialmatcher.find()) {
-                        special = true;
-                    }
+                digit = true;
+            } else {
+                Pattern specialpattern = Pattern.compile("[^a-zA-Z0-9]");
+                Matcher specialmatcher = specialpattern.matcher(String.valueOf(c));
+                if (specialmatcher.find()) {
+                    special = true;
                 }
             }
+        }
 
         return upper && lower && digit && special;
-        }
     }
+}
+
